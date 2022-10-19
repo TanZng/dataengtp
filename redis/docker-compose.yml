@@ -8,6 +8,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  redis2:
+    image: redis
+    ports:
+      - 6379
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   notebook:
     build: notebook/
     ports:
